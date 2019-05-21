@@ -1,9 +1,12 @@
 
 
-
-import 'package:flutter/cupertino.dart';
+import 'package:hello_flutter_redux/store/actions.dart';
 
 int reducer(int previousState, dynamic action) {
-  debugPrint('reducer');
-  return previousState + 1;
+
+  if(action == Actions.increment) {
+    return previousState + 1; 
+  } 
+
+  return previousState;
 }

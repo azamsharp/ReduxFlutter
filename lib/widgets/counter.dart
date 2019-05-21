@@ -13,27 +13,27 @@ class Counter extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-            StoreConnector<int,String>(
-              converter: (store) => store.state.toString(), 
-              builder: (context, vm) {
-                  return Text(vm,style: TextStyle(fontSize: 24));
-              }
-            ),
-            StoreConnector<int,VoidCallback>(
-                          converter: (store) {
-                            return () => store.dispatch(Actions.increment);
-                          },
-                          builder: (context, callback) {
-                            return FlatButton(
-                                    child: Text('Add 1', style: TextStyle(color: Colors.white)), 
-                                    color: Colors.orange, 
-                                    onPressed: callback
-                            );
-                          }
+          StoreConnector<int,String>(
+            converter: (store) => store.state.toString(),
+            builder: (context, viewModel) {
+               return Text(viewModel,style: TextStyle(fontSize: 24));
+            }
+          ),
+              StoreConnector<int,VoidCallback>(
+              converter: (store) {
+                return () => store.dispatch(Actions.increment);
+              },
+              builder: (context, callback) {    
+              return FlatButton(
+                          child: Text('Add 1', style: TextStyle(color: Colors.white)), 
+                          color: Colors.orange, 
+                          onPressed: callback
+                          );}
+             )
+                          
                         
-            )  
-      ],),
-    );
+        ])  
+      );
   }
 
 }

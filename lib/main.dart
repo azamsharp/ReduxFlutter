@@ -5,7 +5,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'store/reducer.dart';
 
 void main() {
-  final Store<int> store = Store<int>(reducer, initialState: 0);
+  final Store<int> store = Store<int>(reducer, initialState: 99);
   runApp(App(store));
 }
 
